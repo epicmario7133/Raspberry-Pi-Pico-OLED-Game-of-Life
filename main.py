@@ -1,5 +1,5 @@
 from machine import I2C, Pin
-from sh1106 import SH1106_I2C
+from ssd1306 import SSD1306_I2C
 import random
 from time import sleep
 
@@ -23,8 +23,8 @@ CENTER_Y = int(WORLD_HEIGHT / 2)
 cells = []   # array where Cell objects will be stored
 
 # Init oled display
-i2c = I2C(1, scl=Pin(15), sda=Pin(14))
-oled = SH1106_I2C(WORLD_WIDTH * CELL_SIZE, WORLD_HEIGHT * CELL_SIZE, i2c)
+i2c = I2C(0, scl=Pin(1), sda=Pin(0))
+oled = SSD1306_I2C(WORLD_WIDTH * CELL_SIZE, WORLD_HEIGHT * CELL_SIZE, i2c)
 oled.rotate(True)
 
 class Cell:
